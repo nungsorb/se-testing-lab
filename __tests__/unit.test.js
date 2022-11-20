@@ -4,14 +4,14 @@ router = require("../routes/studentServiceRoutes"),
 request = require("supertest");
 app.use("/", router); 
 
-test("Test: GET /", async () => {
+test("Get the default root", async () => {
     const res = await request(app).get("/");
     expect(res.body).toEqual({
         error: true, message: "hello"
     });
 });
 
-test("Test: GET /students", async () => {
+test("Get by specified path", async () => {
     const res = await request(app).get("/students");
     expect(res.body.data).toEqual
     ([
